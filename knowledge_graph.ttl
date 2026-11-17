@@ -1,0 +1,333 @@
+@prefix ex: <http://example.org/ontology/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ex:bajnoks_g a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "verseny, torna, ranglista"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "bajnokság"@hu .
+
+ex:beiratkoz_s a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "regisztráció, felvétel, bejelentkezés"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "beiratkozás"@hu .
+
+ex:cpu_szorz a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "szorzó, órajel szorzó, frekvencia szorzó"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "CPU szorzó"@hu .
+
+ex:csapat a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "egyesület, csoport, szövetség"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "csapat"@hu .
+
+ex:d_nt_shoz a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "határozó,elbíráló,vezető"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "döntéshozó"@hu .
+
+ex:egys_ges_szervez_si_s_igazgat_si_elj_r_srend a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "központi eljárás,egységes folyamat,szabályos eljárás"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "egységes szervezési és igazgatási eljárásrend"@hu .
+
+ex:elj_r_szerv a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "hatóság,határozó testület,adminisztratív szerv"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "eljáró szerv"@hu .
+
+ex:fair_play a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "sportszerűség, tisztességes játék, etika"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "Fair Play"@hu .
+
+ex:felv_teli_d_nt_s a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "felvételi határozat, felvételi eredmény, felvételi elbírálás"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "felvételi döntés"@hu .
+
+ex:futsal_szab_lyok a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "futsal előírások, szabályrendszer, játékrend"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "futsal szabályok"@hu .
+
+ex:halaszt_s a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "elhalasztás, késleltetés, halasztás"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "halasztás"@hu .
+
+ex:hallgat a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "diák,tanuló,egyetemi hallgató"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "hallgató"@hu .
+
+ex:hallgat_i_jogviszony a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "tanulmányi státusz, tanulói státusz, tanulmányi jogviszony"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "hallgatói jogviszony"@hu .
+
+ex:hiteles_t_s a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "igazolás, megerősítés, tanúsítás"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "hitelesítés"@hu .
+
+ex:id_k_r_s a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "szünet, szünetkérés, időigény"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "időkérés"@hu .
+
+ex:j_hiszem_s_g a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "őszinteség,becsületesség,tisztesség"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "jóhiszeműség"@hu .
+
+ex:j_t_kos a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "sportoló, résztvevő, csapattag"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "játékos"@hu .
+
+ex:jog a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "szabadság,jogosultság,jogi érdek"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "jog"@hu .
+
+ex:jogviszony a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "munkahelyi kapcsolat,szerződés,státusz"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "jogviszony"@hu .
+
+ex:k_pz_si_szerz_d_s a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "tanulmányi szerződés, hallgatói szerződés, oktatási szerződés"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "képzési szerződés"@hu .
+
+ex:k_tb_r a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "bírság, díj, büntetés"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "kötbér"@hu .
+
+ex:k_telezetts_g a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "feladat,kötelező,kötelező feladat"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "kötelezettség"@hu .
+
+ex:kapus a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "kapuőr, védőkapus, kapus játékos"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "kapus"@hu .
+
+ex:kth a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "képzési tanulmányi hivatali, tanulmányi hivatali, hallgatói ügyek"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "KTH"@hu .
+
+ex:labda a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "gömb, labdarúgó labda, labdacsere"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "labda"@hu .
+
+ex:lemond_s a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "törlés, visszalépés, lemondás"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "lemondás"@hu .
+
+ex:llami_r_sz_szt_nd_j a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "állami támogatás, ösztöndíj, pénzügyi támogatás"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "állami (rész)ösztöndíj"@hu .
+
+ex:m_rk_z_s a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "játék, összecsapás, találkozó"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "mérkőzés"@hu .
+
+ex:mag a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "processzormag, magmag, magmag"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "mag"@hu .
+
+ex:magatart_s a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "viselkedés,hozzáállás,cselekedet"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "magatartás"@hu .
+
+ex:mikroprocesszor a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "processzor, chip, központi egység"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "mikroprocesszor"@hu .
+
+ex:nevez_si_d_j a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "regisztrációs díj, belépő, tagsági díj"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "nevezési díj"@hu .
+
+ex:nk_lts_ges_k_pz_s a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "díjköteles képzés, fizetős képzés, önfinanszírozott tanulmány"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "önköltséges képzés"@hu .
+
+ex:oklev_l a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "diplomamásolat, tanúsítvány, bizonyítvány"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "oklevél"@hu .
+
+ex:oktat a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "tanár,előadó,oktatási személyzet"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "oktató"@hu .
+
+ex:rajel a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "frekvencia, órajel, működési frekvencia"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "órajel"@hu .
+
+ex:regisztr_ci_s_id_szak a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "beiratkozási időszak, felvételi időszak, jelentkezési időszak"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "regisztrációs időszak"@hu .
+
+ex:retts_gi_bizony_tv_ny a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "középiskolai bizonyítvány, érettségi oklevél, végzettségi okirat"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "érettségi bizonyítvány"@hu .
+
+ex:ryzen_3 a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "Ryzen 3 sorozat, alacsonyabb szintű Ryzen, entry-level Ryzen"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "Ryzen 3"@hu .
+
+ex:ryzen_5 a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "Ryzen 5 sorozat, középkategóriás Ryzen, közép‑szintű Ryzen"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "Ryzen 5"@hu .
+
+ex:ryzen_7 a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "Ryzen 7 sorozat, felső‑középkategóriás Ryzen, prémium Ryzen"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "Ryzen 7"@hu .
+
+ex:ryzen_9 a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "Ryzen 9 sorozat, csúcskategóriás Ryzen, high‑end Ryzen"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "Ryzen 9"@hu .
+
+ex:ryzen_threadripper a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "Threadripper, nagy teljesítményű Ryzen, többmagos Ryzen"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "Ryzen Threadripper"@hu .
+
+ex:smt a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "szimultán többszálas végrehajtás, több szálú technika, párhuzamos szálkezelés"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "SMT"@hu .
+
+ex:szerel_s a skos:Concept ;
+    ex:sourceDoc ex:jatekszabalyok_txt ;
+    skos:altLabel "öltözék, ruha, felszerelés"@hu ;
+    skos:broader ex:sport ;
+    skos:prefLabel "szerelés"@hu .
+
+ex:szimult_n_t_bbsz_las_v_grehajt_s a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "SMT, több szálú végrehajtás, párhuzamos feldolgozás"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "szimultán többszálas végrehajtás"@hu .
+
+ex:tanulm_nyi_s_vizsgaszab_lyzat a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "szabályzat,előírás,rendelet"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "Tanulmányi és vizsgaszabályzat"@hu .
+
+ex:tr a skos:Concept ;
+    ex:sourceDoc ex:beiratkozas_txt ;
+    skos:altLabel "tanulmányi rendszer, hallgatói nyilvántartás, tanulmányi nyilvántartás"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "TR"@hu .
+
+ex:utas_t_sk_szlet a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "parancskészlet, instrukciókészlet, operációs kód"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "utasításkészlet"@hu .
+
+ex:versenyk_pes_tud_s a skos:Concept ;
+    ex:sourceDoc ex:tdk_txt ;
+    skos:altLabel "piacképes ismeret,versenyképes kompetencia,elérhető tudás"@hu ;
+    skos:broader ex:oktat_s_tvsz ;
+    skos:prefLabel "versenyképes tudás"@hu .
+
+ex:x86_64 a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "64 bites architektúra, AMD64, x86-64 kompatibilis"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "x86-64"@hu .
+
+ex:zen_mikroarchitekt_ra a skos:Concept ;
+    ex:sourceDoc ex:ryzen_txt ;
+    skos:altLabel "Zen architektúra, Zen tervezés, Zen alapú felépítés"@hu ;
+    skos:broader ex:informatika ;
+    skos:prefLabel "Zen mikroarchitektúra"@hu .
+
+ex:beiratkozas_txt a ex:Document ;
+    ex:hasCategory ex:oktat_s_tvsz .
+
+ex:tdk_txt a ex:Document ;
+    ex:hasCategory ex:oktat_s_tvsz .
+
+ex:jatekszabalyok_txt a ex:Document ;
+    ex:hasCategory ex:sport .
+
+ex:ryzen_txt a ex:Document ;
+    ex:hasCategory ex:informatika .
+
+ex:informatika skos:prefLabel "Informatika"@hu .
+
+ex:sport skos:prefLabel "Sport"@hu .
+
+ex:oktat_s_tvsz skos:prefLabel "Oktatás/TVSZ"@hu .
+
