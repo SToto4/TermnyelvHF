@@ -3,11 +3,11 @@ import json
 import re
 import time
 
-from google.genai import types
 from rdflib import Graph, Literal, Namespace, RDF, URIRef
 from rdflib.namespace import SKOS
 from rank_bm25 import BM25Okapi
 from groq import Groq, RateLimitError
+from graph_visualize import visualize_kg
 
 client = Groq(api_key="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")
 
@@ -22,7 +22,6 @@ kg.bind("ex", EX)
 
 
 def get_active_groq_model():
-    """Stabil, szöveges modellt választ, elkerülve a speciális/hang modelleket."""
     available = [m.id for m in client.models.list().data]
 
     # Konkrét, biztosan működő modellek prioritási sorrendje
@@ -37,7 +36,6 @@ def get_active_groq_model():
         if model in available:
             return model
 
-    # Vésztartalék: csak ismert szöveges gyártók modelljei
     for m in available:
         if any(prefix in m.lower() for prefix in ("llama", "openai/gpt", "gemma", "mixtral")):
             if not any(bad in m.lower() for bad in ("guard", "vision", "whisper", "tts")):
@@ -67,7 +65,6 @@ def call_llm_safe(prompt, json_mode=False):
     raise RuntimeError("Nem sikerült az API hívás 3 próbálkozás után sem.")
 
 def make_safe_uri(text):
-    """Érvényes, ékezet- és speciális karakterektől mentes azonosítót készít az RDF URI-hoz."""
     clean = re.sub(r'[^a-zA-Z0-9_]', '_', text.lower())
     clean = re.sub(r'_+', '_', clean).strip('_')
     return clean if clean else "entity"
@@ -76,10 +73,6 @@ def make_safe_uri(text):
 # 1. KATEGORIZÁLÁS ÉS ENTITÁSKINYERÉS (LLM)
 # ==========================================
 def analyze_and_extract_knowledge(text, filename):
-    """
-    Az LLM kinyeri a dokumentum fő témakörét (kategóriáját),
-    valamint a kulcsfogalmakat és szinonimákat.
-    """
     prompt = f"""
         Elemezd az alábbi magyar szöveget!
         1. Határozd meg a szöveg fő kategóriáját 1-2 szóban (pl. "Egészségügy", "Oktatás/TVSZ", "Informatika", "Sport").
@@ -103,9 +96,15 @@ def analyze_and_extract_knowledge(text, filename):
         print(f"Hiba a feldolgozáskor ({filename}): {e}")
         return {"category": "Általános", "concepts": []}
 
+
 def tokenize_hu(text):
-    clean = re.sub(r'[^\w\s]', '', text.lower())
-    return [w[:5] if len(w) >= 5 else w for w in clean.split() if len(w) >= 2]
+    words = re.sub(r'[^\w\s]', '', text.lower()).split()
+    tokens = []
+    for w in words:
+        tokens.append(w)
+        if len(w) >= 6:
+            tokens.append(w[:6])
+    return tokens
 
 def save_to_kg(analysis, filename):
     """Eltárolja a kategóriát, a dokumentumot és a fogalmakat RDF-ben."""
@@ -220,6 +219,8 @@ def main():
 
     # Gráf lementése fájlba a dokumentációhoz
     kg.serialize("knowledge_graph.ttl", format="turtle")
+    kg.serialize("knowledge_graph.ttl", format="turtle")
+    visualize_kg("knowledge_graph.ttl", "kg_abra.png")
     print(f"\n[OK] Tudásgráf lementve ('knowledge_graph.ttl', {len(kg)} RDF triplett).")
     print("Rendszer készen áll! Írj be egy kérdést (kilépéshez: exit).")
 
@@ -257,23 +258,30 @@ def main():
         bm25 = BM25Okapi(tokenized_corpus)
 
         scores = bm25.get_scores(tokenize_hu(exp_query))
-        best_idx = scores.argmax()
-        best_doc_name = doc_names[best_idx]
-        best_context = filtered_docs[best_doc_name]["text"]
 
-        print(f"\nLegrelevánsabb dokumentum: {best_doc_name} (Kategória: {filtered_docs[best_doc_name]['category']})")
+        # A legjobb 2 találat kiválasztása a szűrt kategóriából
+        top_indices = scores.argsort()[::-1][:2]
+        selected_docs = [doc_names[i] for i in top_indices]
+
+        print(
+            f"\nKiválasztott forrásdokumentumok (Top {len(selected_docs)}): {selected_docs} (Kategória: {filtered_docs[selected_docs[0]]['category']})")
+
+        combined_context = "\n\n---\n\n".join(
+            [f"DOKUMENTUM ({name}):\n{filtered_docs[name]['text']}" for name in selected_docs]
+        )
 
         # 4. Természetes nyelvű, igényes LLM válasz megfogalmazása
         rag_prompt = f"""
-        A felhasználó kérdést tett fel. Az alábbi hivatalos forrás alapján válaszolj rá barátságos, 
-        de szakszerű és tömör magyar mondatokkal. Csak olyan állítást tegyél, ami a forrásból következik!
+                A felhasználó kérdést tett fel. Az alábbi hivatalos források alapján válaszolj rá barátságos, 
+                de szakszerű és tömör magyar mondatokkal. Csak olyan állítást tegyél, ami a forrásokból következik, 
+                és jelöld meg, melyik dokumentumból származik az információ!
 
-        FORRÁSDOKUMENTUM ({best_doc_name}):
-        {best_context}
+                FORRÁSDOKUMENTUMOK:
+                {combined_context}
 
-        FELHASZNÁLÓ KÉRDÉSE:
-        {q}
-        """
+                FELHASZNÁLÓ KÉRDÉSE:
+                {q}
+                """
         answer_text = call_llm_safe(rag_prompt)
 
         print("\n=== Válasz a felhasználónak ===")
