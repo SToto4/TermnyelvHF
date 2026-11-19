@@ -107,7 +107,6 @@ def tokenize_hu(text):
     return tokens
 
 def save_to_kg(analysis, filename):
-    """Eltárolja a kategóriát, a dokumentumot és a fogalmakat RDF-ben."""
     category = analysis.get("category", "Általános")
     cat_uri = URIRef(EX[make_safe_uri(category)])
     doc_uri = URIRef(EX[make_safe_uri(filename)])
